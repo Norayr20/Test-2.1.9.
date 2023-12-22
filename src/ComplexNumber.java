@@ -34,14 +34,12 @@ public class ComplexNumber {
 
         ComplexNumber that = (ComplexNumber) o;
 
-        if (Double.compare(that.re, re) != 0)
-            return false;
-        return Double.compare(that.im, im) == 0;
+        return Double.compare(that.re, re) == 0 && Double.compare(that.im, im) == 0;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(re, im);
+        return Objects.hash(this.re, this.im);
     }
 }
 
