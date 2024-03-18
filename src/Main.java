@@ -44,12 +44,18 @@ public class Main {
             ComplexNumber that = (ComplexNumber) o;
             return
                     Double.compare(that.re, re) == 0 &&
-                    Double.compare(that.im, im) == 0;
+                            Double.compare(that.im, im) == 0;
         }
 
-        @Override
         public int hashCode() {
-            return Objects.hash(re, im);
+            final int prime = 31;
+            int result = 1;
+            long temp;
+            temp = Double.doubleToLongBits(re);
+            result = prime * result + (int) (temp ^ (temp >>> 32));
+            temp = Double.doubleToLongBits(im);
+            result = prime * result + (int) (temp ^ (temp >>> 32));
+            return result;
         }
     }
 }
