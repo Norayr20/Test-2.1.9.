@@ -1,4 +1,3 @@
-import java.util.Objects;
 public class Main {
     public static void main(String[] args) {
         ComplexNumber num1 = new ComplexNumber(3.0, 4.0);
@@ -13,28 +12,22 @@ public class Main {
             System.out.println("num1 and num2 are not equal");
         }
     }
-
     public static class ComplexNumber {
-
         private double re;
         private double im;
 
         public ComplexNumber() {
         }
-
         public ComplexNumber(double re, double im) {
             this.re = re;
             this.im = im;
         }
-
         public double getRe() {
             return re;
         }
-
         public double getIm() {
             return im;
         }
-
         @Override
         public boolean equals(Object o) {
             if (this == o)
@@ -46,16 +39,9 @@ public class Main {
                     Double.compare(that.re, re) == 0 &&
                             Double.compare(that.im, im) == 0;
         }
-
+        @Override
         public int hashCode() {
-            final int prime = 31;
-            int result = 1;
-            long temp;
-            temp = Double.doubleToLongBits(re);
-            result = prime * result + (int) (temp ^ (temp >>> 32));
-            temp = Double.doubleToLongBits(im);
-            result = prime * result + (int) (temp ^ (temp >>> 32));
-            return result;
+            return (int) ((re - 3) * (im + 4));
         }
     }
 }
